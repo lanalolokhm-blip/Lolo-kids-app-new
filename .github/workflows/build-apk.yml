@@ -18,7 +18,12 @@ jobs:
           rm -rf /tmp/lulu
           mkdir -p /tmp/lulu
           unzip -q "$ZIP" -d /tmp/lulu
-          cp -a /tmp/lulu/. .
+
+          if [ -f /tmp/lulu/LuluAndroid-Corrected-v2/build.gradle.kts ]; then
+            cp -a /tmp/lulu/LuluAndroid-Corrected-v2/. .
+          else
+            cp -a /tmp/lulu/. .
+          fi
 
       - name: Setup Java 17
         uses: actions/setup-java@v4
