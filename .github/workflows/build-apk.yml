@@ -13,7 +13,7 @@ jobs:
 
       - name: Unpack Lulu project
         run: |
-          ZIP="LuluAndroid-Corrected-v2.zip"
+          ZIP="$(find . -maxdepth 1 -type f -name '*.zip' -print -quit)"
           test -n "$ZIP"
           rm -rf /tmp/lulu
           mkdir -p /tmp/lulu
